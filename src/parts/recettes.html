@@ -1,0 +1,53 @@
+<div x-data="Recettes()" x-init="init" class="px-6 grid grid-cols-1 md:grid-cols-3 gap-8 p-4 px-32">
+    <template x-for="recipe in filteredRecipes()" :key="recipe.id">
+        <div @click="DetailImage(recipe.id)" x-data="{src: null}" class="hover:bg-gray-100">
+            <div>
+                <img :src="recipe.imageUrl" :alt="recipe.title">
+            </div>
+
+        <div class="p-2">
+            <h2 class="text-2xl auto font-bold" x-text="recipe.title"></h2>
+            <div class="flex flex-col">
+                <span>Difficulté: <span x-text="recipe.difficulty"></span></span>
+                <span>Temps: <span x-text="`${recipe.preparationTime} min`"></span></span>
+                <span>Catégorie: <span x-text="recipe.category"></span></span>
+            </div>
+
+        <div x-show="selectedImage" class="fixed top-0 left-0 right-0 bottom-0 bg-black">
+            <div class="bg-white p-4 max-w-lg max-h-full overflow-auto text-center m-auto rounded-lg">
+                <button @click="closeDetailImage()" class="text-red-500 absolute top-2 right-2">X</button>
+                    <div class="flex justify-center">
+                        <img :src="selectedImage.imageUrl" :alt="selectedImage.title" class="max-w-full h-auto mb-4" />
+                    </div>
+                <div class="bg-white">
+                    <h2 class="text-2xl font-bold" x-text="selectedImage.title"></h2>
+                </div>
+                <div class="flex flex-col">
+                    <span>Difficulté: <span x-text="selectedImage.difficulty"></span></span>
+                    <span>Temps: <span x-text="`${selectedImage.preparationTime} min`"></span></span>
+                    <span>Catégorie: <span x-text="selectedImage.category"></span></span>
+                </div>
+
+            <div>
+                <h3>Ingrédients:</h3>
+                <ul>
+                    <template x-for="ingredient in selectedImage.ingredients" :key="ingredient.name">
+                        <li x-text="`${ingredient.quantity} ${ingredient.unit} de ${ingredient.name}`"></li>
+                    </template>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Instructions:</h3>
+                <ol>
+                    <template x-for="(instruction, index) in selectedImage.instructions" :key="index">
+                        <li x-text="instruction"></li>
+                    </template>
+                </ol>
+            </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </template>
+</div>

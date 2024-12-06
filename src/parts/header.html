@@ -1,0 +1,21 @@
+<div class="bg-slate-200 p-4 flex justify-between items-center text-center shadow-xl md:px-32">
+    <span class="text-lg font-bold">RÉMYRECETTES.com</span>
+        <div class="md:hidden" :class="{'hover:text-black': open}" x-data="{open: false}">
+            <button @click="open = ! open"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+
+            <span :class="{'hidden': !open, 'bg-white text-black flex flex-col text-center p-2 rounded-md absolute right-0 top-20': open}">
+                <a href="#">Recettes</a>
+                <a href="#">A propos</a>
+                <a href="#">Contact</a>
+            </span>
+        </div>
+
+    <div class="hidden space-x-4 md:inline">
+        <a href="#">Recettes</a>
+        <a href="#">A propos</a>
+        <a href="#">Contact</a>
+    </div>
+</div>

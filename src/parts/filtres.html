@@ -1,0 +1,35 @@
+<div class="flex items-center text-center justify-center p-4">
+    <div class="flex">
+        <div x-data="{ difficulty: 'facile' }">
+            <select x-model="difficulty" @change="addDifficulty(difficulty)">
+                <option value=""></option>
+                <option value="facile">Facile</option>
+                <option value="moyenne">Intermédiaire</option>
+                <option value="difficile">Difficile</option>
+            </select>
+        </div>
+
+    <div x-data="{ difficulty: 'moyenne' }">
+        <select x-model="difficulty" @change="addDifficulty(difficulty)">
+            <option value=""></option>
+            <option value="facile">Facile</option>
+            <option value="moyenne">Intermédiaire</option>
+            <option value="difficile">Difficile</option>
+        </select>
+    </div>
+
+    <div x-data="{ difficulty: 'difficile' }">
+        <select x-model="difficulty" @change="addDifficulty(difficulty)">
+            <option value=""></option>
+            <option value="facile">Facile</option>
+            <option value="moyenne">Intermédiaire</option>
+            <option value="difficile">Difficile</option>
+        </select>
+    </div>
+    </div>
+
+    <div x-data="{ favoris: false }">
+        <input type="checkbox" x-model="favoris" />
+        <span>Favoris</span>
+    </div>
+</div>
