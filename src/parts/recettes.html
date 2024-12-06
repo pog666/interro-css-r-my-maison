@@ -1,4 +1,4 @@
-<div x-data="Recettes()" x-init="init" class="px-6 grid grid-cols-1 md:grid-cols-3 gap-8 p-4 px-32">
+<div x-data="Recettes()" x-init="init" class="grid grid-cols-1 md:grid-cols-3 gap-8 p-4 px-32">
     <template x-for="recipe in filteredRecipes()" :key="recipe.id">
         <div @click="DetailImage(recipe.id)" x-data="{src: null}" class="hover:bg-gray-100">
             <div>
